@@ -64,49 +64,24 @@ function App() {
             </video>
             */}
             
-            {/* Arquivo local com estratégia de áudio inteligente */}
-            <video
-              className="w-full h-auto"
-              controls
-              autoPlay
-              playsInline
-              preload="metadata"
-              loop
-              onLoadedData={(e) => {
-                const video = e.target as HTMLVideoElement;
-                // Tenta tocar com som primeiro
-                video.muted = false;
-                video.play().catch(() => {
-                  // Se falhar, toca sem som
-                  video.muted = true;
-                  video.play();
-                });
-              }}
-              onClick={(e) => {
-                // Quando clicar no vídeo, ativa o som
-                const video = e.target as HTMLVideoElement;
-                if (video.muted) {
-                  video.muted = false;
-                  video.volume = 1;
-                }
-              }}
-            >
-              <source src="/video.mp4" type="video/mp4" />
-              Seu navegador não suporta a tag de vídeo.
-            </video>
-            
-            {/* Botão flutuante para ativar som */}
-            <div 
-              className="absolute top-4 right-4 bg-red-500 hover:bg-red-600 text-white p-2 rounded-full cursor-pointer animate-pulse"
-              onClick={() => {
-                const video = document.querySelector('video') as HTMLVideoElement;
-                if (video && video.muted) {
-                  video.muted = false;
-                  video.volume = 1;
-                }
-              }}
-            >
-              🔊
+            {/* Streamable - Código ajustado pelo usuário */}
+            <div style={{position: 'relative', width: '100%', height: '0px', paddingBottom: '136.111%'}}>
+              <iframe 
+                allow="fullscreen;autoplay" 
+                allowFullScreen 
+                height="100%" 
+                src="https://streamable.com/e/38i0so?autoplay=1&loop=0&nocontrols=1" 
+                width="100%" 
+                style={{
+                  border: 'none', 
+                  width: '100%', 
+                  height: '100%', 
+                  position: 'absolute', 
+                  left: '0px', 
+                  top: '0px', 
+                  overflow: 'hidden'
+                }}
+              />
             </div>
             
             {/* OPÇÃO 2: Streamable.com - Descomente se usar */}
