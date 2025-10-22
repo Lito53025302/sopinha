@@ -23,3 +23,7 @@ dist-ssr
 .env
 
 public/video.mp4
+
+# Firebase credentials - NEVER commit these!
+*firebase-adminsdk*
+*.json
